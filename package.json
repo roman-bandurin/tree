@@ -33,7 +33,11 @@
     "extends": [
       "plugin:vue/essential",
       "@vue/airbnb"
-    ]
+    ],
+    "rules": {
+      "semi": ["error", "never", { "beforeStatementContinuationChars": "always"}],
+      "import/no-extraneous-dependencies": "off"
+    }
   },
   "postcss": {
     "plugins": {
