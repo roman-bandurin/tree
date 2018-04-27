@@ -36,6 +36,14 @@ export default {
   props: {
     msg: String,
   },
+  methods: {
+    add(a, b) {
+      return a + b
+    },
+    reduce(a, b) {
+      return a - b
+    },
+  },
 }
 </script>
 

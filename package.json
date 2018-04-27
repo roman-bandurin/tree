@@ -35,7 +35,13 @@
       "@vue/airbnb"
     ],
     "rules": {
-      "semi": ["error", "never", { "beforeStatementContinuationChars": "always"}],
+      "semi": [
+        "error",
+        "never",
+        {
+          "beforeStatementContinuationChars": "always"
+        }
+      ],
       "import/no-extraneous-dependencies": "off"
     }
   },
@@ -65,7 +71,16 @@
     },
     "snapshotSerializers": [
       "jest-serializer-vue"
-    ]
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,vue}",
+      "!src/main.js",
+      "!**/dist/**",
+      "!**/coverage/**",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": ["html", "text-summary", "lcov"]
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
