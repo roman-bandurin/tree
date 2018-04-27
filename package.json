@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "coveralls": "vue-cli-service test && cat ./coverage/lcov.info | coveralls",
+    "coveralls-win": "vue-cli-service test && type coverage\\lcov.info | coveralls"
   },
   "dependencies": {
     "vue": "^2.5.13"
@@ -20,6 +22,7 @@
     "@vue/test-utils": "^1.0.0-beta.10",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.0.4",
+    "coveralls": "^3.0.0",
     "lint-staged": "^6.0.0",
     "vue-template-compiler": "^2.5.13"
   },
@@ -42,7 +45,8 @@
           "beforeStatementContinuationChars": "always"
         }
       ],
-      "import/no-extraneous-dependencies": "off"
+      "import/no-extraneous-dependencies": "off",
+      "linebreak-style": "off"
     }
   },
   "postcss": {
@@ -80,7 +84,11 @@
       "!**/coverage/**",
       "!**/node_modules/**"
     ],
-    "coverageReporters": ["html", "text-summary", "lcov"]
+    "coverageReporters": [
+      "html",
+      "text-summary",
+      "lcov"
+    ]
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
