@@ -7,6 +7,7 @@
     "build": "vue-cli-service build",
     "test": "vue-cli-service test",
     "lint": "vue-cli-service lint",
+    "install-dev": "npm install --only=dev",
     "coveralls": "vue-cli-service test && cat ./coverage/lcov.info | coveralls",
     "coveralls-win": "vue-cli-service test && type coverage\\lcov.info | coveralls"
   },
@@ -27,26 +28,29 @@
     "vue-template-compiler": "^2.5.13"
   },
   "babel": {
-    "presets": [
-      "@vue/app"
-    ]
+    "presets": ["@vue/app"]
   },
   "eslintConfig": {
     "root": true,
     "extends": [
-      "plugin:vue/essential",
-      "@vue/airbnb"
+      "@vue/airbnb", "plugin:vue/recommended"
     ],
     "rules": {
       "semi": [
         "error",
-        "never",
-        {
+        "never", {
           "beforeStatementContinuationChars": "always"
         }
       ],
       "import/no-extraneous-dependencies": "off",
-      "linebreak-style": "off"
+      "linebreak-style": "off",
+      "vue/max-attributes-per-line": [
+        "error", {
+          "singleline": 10
+        }
+      ],
+      "vue/require-default-prop": "off",
+      "vue/v-on-style": "off"
     }
   },
   "postcss": {
@@ -55,16 +59,11 @@
     }
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
+    "> 1%", "last 2 versions", "not ie <= 8"
   ],
   "jest": {
     "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "vue"
+      "js", "jsx", "json", "vue"
     ],
     "transform": {
       "^.+\\.vue$": "vue-jest",
@@ -73,34 +72,20 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     },
-    "snapshotSerializers": [
-      "jest-serializer-vue"
-    ],
+    "snapshotSerializers": ["jest-serializer-vue"],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "**/*.{js,vue}",
-      "!src/main.js",
-      "!**/dist/**",
-      "!**/coverage/**",
-      "!**/node_modules/**"
+      "**/*.{js,vue}", "!src/main.js", "!**/dist/**", "!**/coverage/**", "!**/node_modules/**"
     ],
-    "coverageReporters": [
-      "html",
-      "text-summary",
-      "lcov"
-    ]
+    "coverageReporters": ["html", "text-summary", "lcov"]
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.js": [
-      "vue-cli-service lint",
-      "git add"
+      "vue-cli-service lint", "git add"
     ],
-    "*.vue": [
-      "vue-cli-service lint",
-      "git add"
-    ]
+    "*.vue": ["vue-cli-service lint", "git add"]
   }
 }
