@@ -50,6 +50,7 @@
         }
       ],
       "vue/require-default-prop": "off",
+      "vue/valid-template-root": "off",
       "vue/v-on-style": "off"
     }
   },
